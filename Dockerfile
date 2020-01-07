@@ -17,8 +17,8 @@ RUN dotnet publish -c Release -o out ActivityReservation/ActivityReservation.csp
 # build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 
-RUN apk add libgdiplus --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted && \
-    apk add terminus-font && \
+RUN apk add libgdiplus --update-cache --repository https://mirrors.huaweicloud.com/alpine/edge/testing/ --allow-untrusted && \
+    apk add terminus-font --update-cache --repository https://mirrors.huaweicloud.com/alpine/v3.8/main/ && \
     apk add --no-cache icu-libs
 # https://www.abhith.net/blog/docker-sql-error-on-aspnet-core-alpine/
 ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT false
